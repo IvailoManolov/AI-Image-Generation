@@ -7,6 +7,7 @@ background : #000;
 height:80px;
 display:flex;
 justify-content:space-between;
+caret-color: transparent;
 padding:0.5rem calc((100vw - 1000px)/2);
 z-index:10;
 `
