@@ -1,11 +1,13 @@
 .container{
+    caret-color: transparent;
     display: flex;
+    height: calc(100vh - 80px);
     flex-direction: row;
     position: relative;
+    align-items: center;
 }
 
 .image_holder{
-    position: relative;
     display: flex;
     flex-direction: column;
     padding: 2px;
@@ -20,8 +22,37 @@
     border: 2px solid black;   
 }
 
+
+
 .overlay{
     display: flex;
     color: whitesmoke;
     position: absolute;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+    opacity: 0.8;
 }
+
+.info{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.info label{
+    color: gray;
+    font-size: 35px;
+    margin-bottom: 20px;
+    width: 100%;
+    justify-content: center;
+    border-bottom: 1px solid black;
+    text-align: center;
+    font-weight: 500;
+}
+
+.info p {
+    margin-top: 20px;
+    margin-bottom: 15px;
+    font-size: 18px;
+    color: black;
+}
+
