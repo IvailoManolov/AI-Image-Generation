@@ -1,27 +1,23 @@
 import React from 'react'
-import {FaFacebook,FaInstagram} from 'react-icons/fa'
 
 import {MainContainer,GlassEffect,InitialText,ButtonContainer,Horizontal,InputContainer} from '../Containers'
 
 import Button from '../Button'
 import Input from '../Input'
 
-const SignUp = () => {
+const SignIn = () => {
   return (
     <MainContainer>
         <GlassEffect>
             <InitialText>
-                Create your account
+                Log into your account
             </InitialText>
 
             <InputContainer>   
                 <Input type={"text"} placeholder="Email"/>
-                <Input type={"password"} placeholder = "Password"/>
-                <Input type={"password"} placeholder = "Repeat Password"/>
-                
-
+                <Input type={"password"} placeholder = "Password"/>            
             <ButtonContainer>
-                <Button content={"Sign up"}/>
+                <Button content={"Login"}/>
             </ButtonContainer>
 
             </InputContainer>
@@ -35,4 +31,4 @@ const SignUp = () => {
 
 
 
-export default SignUp
+export default SignIn
