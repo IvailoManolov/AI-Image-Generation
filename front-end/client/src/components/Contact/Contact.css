@@ -1,5 +1,6 @@
 .contact{
     display: flex;
+    background-color: gray;
     height: calc(100vh - 80px);
     caret-color: transparent;
     align-items: center;
