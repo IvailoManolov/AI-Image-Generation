@@ -1,7 +1,21 @@
 import React from 'react'
-import {Nav,NavLink,Bars,NavMenu,NavBtn,NavBtnLink} from './NavigationBarElements'
+import {Nav,NavLink,Bars,NavMenu,NavBtn,NavBtnLink,NavBtnLinkLogout} from './NavigationBarElements'
 
-const NavigationBar = () => {
+
+import { toast } from 'react-toastify'
+
+
+const LogoutSuccess = () => {
+    toast.warning("Logout from account")
+}
+
+const NavigationBar = ({user,setUser}) => {
+
+  const handleLogout = () => {
+    setUser(null)
+    LogoutSuccess()
+  }
+
   return (
     <>
     <Nav>
@@ -19,13 +33,25 @@ const NavigationBar = () => {
             <NavLink to="/contact-us" activeStyle>
                 Contact Us
             </NavLink>
-            <NavLink to="/sign-up" activeStyle>
-                Sign up
-            </NavLink>
+            {
+            !user &&
+            (
+                <NavLink to="/sign-up" activeStyle>
+                    Sign up
+                </NavLink>
+            )}
         </NavMenu>
 
         <NavBtn>
-            <NavBtnLink to="/signin">Sign In</NavBtnLink>
+            {
+            !user ?  
+            (
+                <NavBtnLink to="/signin">Sign In</NavBtnLink>
+            ) : (
+            <>
+                <NavBtnLinkLogout onClick = {handleLogout}>Logout</NavBtnLinkLogout>
+            </>)}
+            
         </NavBtn>
     </Nav>
     </>

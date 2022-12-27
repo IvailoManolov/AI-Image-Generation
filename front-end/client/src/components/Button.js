@@ -1,15 +1,6 @@
-import React from 'react'
 import styled from 'styled-components'
 
-const Button = ({content}) => {
-  return (
-    <StyledButton>
-        {content}
-    </StyledButton>
-  )
-}
-
-const StyledButton = styled.button`
+export const StyledButton = styled.button`
     background:linear-gradient(to right, #14163c 0%, #03217b 79%);
     text-transform:uppercase;
     letter-spacing:0.2rem;
@@ -27,5 +18,3 @@ const StyledButton = styled.button`
         width:66%;
     }
 `
-
-export default Button
