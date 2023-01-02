@@ -1,14 +1,62 @@
-import React, { useState } from 'react'
+import React, { useRef, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import styled from 'styled-components'
+import { toast } from 'react-toastify'
+import axios from "axios"
+
+
+const ImageSuccess = () => {
+  toast.success("Image generated successfully")
+}
+
+const ImageFailed = () => {
+  toast.error("Problem generating image.")
+}
 
 const Home = ({user}) => {
+
+  const [image,setImage] = useState(null)
 
   let navigate = useNavigate() 
 
   const changeRouteSignIn = () => { 
     let path = `signin`; 
     navigate(path);
+  }
+
+  const textRef = useRef()
+
+  const handleImageCreation = async () => {
+
+    if(textRef.current.value == null || textRef.current.value.trim() === '')
+    {
+      setImage(null)
+    }
+
+    else
+    {
+      try{
+
+      const imageQuery = {
+        imageText : textRef.current.value
+      }
+
+      const id = toast.loading("Generating image ...")
+
+      const responce = await axios.post("/openAI/generateImage",imageQuery).then((responce) => {
+        toast.update(id, {render: "Image generated successfully", type: "success", isLoading: false,autoClose:2000})
+        console.log(responce.data)
+        setImage(responce.data)
+      })
+
+        
+    }catch(err)
+    {
+      console.log(err)
+      ImageFailed()
+    }
+      
+    }
   }
 
   return (
@@ -37,15 +85,15 @@ const Home = ({user}) => {
 
             <GetStartedImageContainer>
               Describe your image
-              <AIImageInput placeholder='Enter an image description'>
+              <AIImageInput placeholder='Enter an image description' ref = {textRef}>
                 
               </AIImageInput>
-              <SpecialButton onClick = {() => {}}>Generate Image</SpecialButton>
+              <SpecialButton onClick = {handleImageCreation}>Generate Image</SpecialButton>
             </GetStartedImageContainer>
         </ImageContainer>
 
         <AIImageContainer>
-          <img src="https://mir-s3-cdn-cf.behance.net/project_modules/max_1200/f52f0f136277001.61f6e5dda28a5.jpg" alt=""/>
+          <img src = {image} alt = ""/>
         </AIImageContainer>
         </>)
       }
@@ -212,7 +260,6 @@ letter-spacing:0.4rem;
 img{
         width:100%;
         height:100%;
-        object-fit:cover;
         border-radius:8px;
       }
 

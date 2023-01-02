@@ -99,3 +99,73 @@ text-decoration:none;
 }
 
 `
+
+export const UserButton = styled.button`
+display: flex;
+margin-right:5px;
+color:white;
+background-color:gray;
+position:absolute;
+right:0;
+border-radius:50%;
+width:40px;
+height:40px;
+padding:5px;
+text-align:center;
+align-items:center;
+justify-content:center;
+cursor:pointer;
+`
+
+export const UserMenu = styled.div`
+display: flex;
+position:absolute;
+width:300px;
+height:500px;
+background:rgba(255,255,255,0.25);
+box-shadow:0 8px 32px 0 rgba(31,38,135,0.38);
+backdrop-filter:blur(15px);
+right:0;
+top:0;
+margin-top:20px;
+margin-right:50px;
+border-radius:15px;
+z-index:100;
+`
+
+export const UserData = styled.div`
+display: flex;
+flex-direction:column;
+width:300px;
+height:500px;
+text-align:center; 
+label{
+    font-size:22px;
+    padding:15px;
+    font-weight:800;
+    border-bottom:2px solid black;
+}
+`
+
+export const UserDataInfo = styled.div`
+display: flex;
+flex-direction:column;
+justify-content:space-between;
+background-color:rgba(0,0,0,0.2);
+height:100%;
+p{
+    font-size:18px;
+    font-weight:800;
+    color:black;
+    margin-top:15px;
+    margin-bottom:15px;
+    background-color:rgba(0,0,0,0.02);
+    caret-color:transparent;
+    cursor:pointer;
+    padding:15px;
+
+    &:hover{    
+        background-color:rgba(0,0,0,0.1);
+    }
+}
+`

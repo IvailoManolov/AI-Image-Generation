@@ -14,7 +14,7 @@ import 'react-toastify/dist/ReactToastify.css';
 
 function App() {
 
-  const [user,setUser] = useState("null")
+  const [user,setUser] = useState(null)
   return (
     <div className="App">
       <Router>
@@ -27,6 +27,7 @@ function App() {
           <Route path="/signin" element={<SignIn setUser = {setUser}/>}/>
         </Routes>
       </Router>
+      
       <ToastContainer
       position="bottom-center"
       autoClose={5000}
