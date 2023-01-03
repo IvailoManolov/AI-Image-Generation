@@ -121,7 +121,7 @@ export const UserMenu = styled.div`
 display: flex;
 position:absolute;
 width:300px;
-height:500px;
+height:357px;
 background:rgba(255,255,255,0.25);
 box-shadow:0 8px 32px 0 rgba(31,38,135,0.38);
 backdrop-filter:blur(15px);
@@ -137,7 +137,7 @@ export const UserData = styled.div`
 display: flex;
 flex-direction:column;
 width:300px;
-height:500px;
+height:300px;
 text-align:center; 
 label{
     font-size:22px;
@@ -150,22 +150,25 @@ label{
 export const UserDataInfo = styled.div`
 display: flex;
 flex-direction:column;
-justify-content:space-between;
-background-color:rgba(0,0,0,0.2);
+border-bottom-left-radius: 15px;
+border-bottom-right-radius:15px;
+background-color:rgba(0,0,0,0.3);
 height:100%;
 p{
-    font-size:18px;
+    font-size:19px;
     font-weight:800;
     color:black;
-    margin-top:15px;
-    margin-bottom:15px;
     background-color:rgba(0,0,0,0.02);
     caret-color:transparent;
     cursor:pointer;
-    padding:15px;
+    padding:19px;
 
     &:hover{    
         background-color:rgba(0,0,0,0.1);
     }
 }
+p:last-child:hover{
+        border-bottom-left-radius: 15px;
+        border-bottom-right-radius:15px;
+    }
 `
